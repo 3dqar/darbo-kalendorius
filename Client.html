@@ -1,3 +1,4 @@
+<script>
 (() => {
 'use strict';
 const $=id=>document.getElementById(id), state={month:'',data:null,selected:null,editing:null,pendingPlace:false};
@@ -41,3 +42,4 @@ $('navPlaces').addEventListener('click',()=>{state.pendingPlace=false;$('placeDi
 $('deleteShift').addEventListener('click',()=>{if(!state.editing||!confirm('Tikrai ištrinti šią pamainą?'))return;execute(async()=>{const data=await call('apiDeleteShift',state.editing,state.month);$('shiftDialog').close();render(data);toast('Pamaina ištrinta')})});$('exportCSV').addEventListener('click',exportCSV);
 load(today().slice(0,7));
 })();
+</script>
